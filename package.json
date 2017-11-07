@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gulp",
     "watch": "gulp watch",
-    "server": "node server.js"
+    "dev": "node server.js"
   },
   "repository": {
     "type": "git",
