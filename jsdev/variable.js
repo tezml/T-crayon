@@ -32,6 +32,7 @@ const ajax = (json) => {
         before : json.before || function () {},//请求前回调函数
         fail : json.fail || function () {},//请求失败回调函数
         timeout : json.timeout || 0,//缓存过期时间
+        cacheSize: json.cacheSize || 50000//缓存总字节数
     };
     //执行ajax前的before
     params.before();
@@ -42,10 +43,10 @@ const ajax = (json) => {
         method: params.type,
         headers: {
             'Accept' :'application/json,text/plain,*/*',
-            'Content-Type': 'application/x-www-form-urlencoded',
-            //'Content-Type': 'application/json;charset=utf-8'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json;charset=utf-8'
         },
-        mode: 'cors'
+        mode: 'no-cors'
     };
     //GET参数处理
     if(params.type =="GET"){
@@ -84,24 +85,34 @@ const ajax = (json) => {
         return  params.success(crayon.data[offset]);//回调success
     }else{
         return fetch(url,fetchBody)
-            .then(response => response.json())
-            .then((res) =>{
-                const data = res;//params.saveData(res);//保存数据
-                //如果urlList里没有这个url,那就把这个url塞进urllist,并把数据存进crayon的data
-                if(!saveUrl){
-                    crayon.urlList.push({url:params.path + paramType(params.param,"GET"),time:Date.parse(new Date())});
-                    crayon.save(data,crayon.data.length);
-                }
-                //过期清理缓存
-                if(params.timeout != 0){
-                    setTimeout(()=>{
-                        delete crayon.urlList[crayon.urlList.length-1];
-                        delete crayon.data[crayon.data.length-1];
-                    },params.timeout)
-                }
-                params.success(res);//回调success
+            .then((response) => {
+                // console.log(response.status);
+                return response.json();
             })
-            .catch(error => params.fail(error))
+            .then((res) =>{
+                //如果超过设定缓存限制就不缓存了
+                if(JSON.stringify(res).length < params.cacheSize){
+                    console.log("没超!");
+                    //把数据存进缓存
+                    //如果urlList里没有这个url,那就把这个url塞进urllist,并把数据存进crayon的data
+                    if(!saveUrl){
+                        crayon.urlList.push({url:params.path + paramType(params.param,"GET"),time:Date.parse(new Date())});
+                        crayon.save(res,crayon.data.length);
+                    }
+                    //过期清理缓存
+                    if(params.timeout != 0){
+                        setTimeout(()=>{
+                            delete crayon.urlList[crayon.urlList.length-1];
+                            delete crayon.data[crayon.data.length-1];
+                        },params.timeout)
+                    }
+                }
+                //回调success
+                params.success(res);
+            })
+            .catch((error,a) => {
+                params.fail(error)
+            })
     }
 };
 export const crayon = {};
