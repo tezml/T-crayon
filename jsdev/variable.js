@@ -41,7 +41,7 @@ const ajax = (json) => {
     let url = "";
     //数据结构
     let fetchBody={
-        credentials: 'include',  //http://xmth5.sit.ffan.com/
+        credentials: 'include',  
         method: params.type,
         headers: params.header,
         mode: params.mode ? 'cors' : 'no-cors',
