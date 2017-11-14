@@ -32,7 +32,9 @@ const ajax = (json) => {
         before : json.before || function () {},//请求前回调函数
         fail : json.fail || function () {},//请求失败回调函数
         timeout : json.timeout || 0,//缓存过期时间
-        cacheSize: json.cacheSize || 50000//缓存总字节数
+        cacheSize: json.cacheSize || 50000,//缓存总字节数
+        header:json.header || {'Content-Type': 'application/x-www-form-urlencoded'},//ajax头部信息
+        mode:json.mode || false,//是否跨域
     };
     //执行ajax前的before
     params.before();
@@ -41,12 +43,8 @@ const ajax = (json) => {
     let fetchBody={
         credentials: 'include',  //http://xmth5.sit.ffan.com/
         method: params.type,
-        headers: {
-            'Accept' :'application/json,text/plain,*/*',
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        mode: 'no-cors'
+        headers: params.header,
+        mode: params.mode ? 'cors' : 'no-cors',
     };
     //GET参数处理
     if(params.type =="GET"){
