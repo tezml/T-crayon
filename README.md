@@ -1,4 +1,5 @@
 # T-crayon
 assist cache and ajax
-about  fetch.js
+
+rely on fetch.js
 
