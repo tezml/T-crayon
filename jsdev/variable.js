@@ -21,7 +21,6 @@ const paramType = (data,type) => {
 
 
 const ajax = (json) => {
-
     let params = {
         path : json.path || "",//ajax请求url
         param : json.param || {},//请求参数
@@ -41,7 +40,7 @@ const ajax = (json) => {
     let url = "";
     //数据结构
     let fetchBody={
-        credentials: 'include',  
+        credentials: 'include',
         method: params.type,
         headers: params.header,
         mode: params.mode ? 'cors' : 'no-cors',
@@ -120,16 +119,7 @@ crayon.urlList = [];
 
 crayon.save = (res,offset) =>{
     crayon.data[offset] = res;
-    // console.log(crayon.data)
 };
-
-
-
-
-
-
-
-
 
 
 
