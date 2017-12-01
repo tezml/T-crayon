@@ -28,9 +28,9 @@ ajax({
         data:json
     },
     cache:true,
-    timeout:1000,
-    type:"POST",
-    cacheSize:1,
+    // timeout:1000,
+    // type:"POST",
+    // cacheSize:1,
     before: () => {
 
     },
