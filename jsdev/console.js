@@ -30,7 +30,7 @@ ajax({
     cache:true,
     timeout:1000,
     type:"POST",
-    cacheSize:1,
+    cacheSize:2,
     before: () => {
 
     },
