@@ -25,7 +25,7 @@ ajax({
         template_id:"1Lc-qNxPp2cefHUA1js04gXfRzS6MJUCwAO5cLrW9WU",
         touser:"ozEAf0UooMDRQwx-DPb_PB0W87x8",
         form_id:"c9df4efc3bd5fd8a7c870593d29b5b0b",
-        data:{a:1},
+        data:{a:1,b:2},
     },
     cache:true,
     timeout:1000,
