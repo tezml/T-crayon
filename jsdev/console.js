@@ -19,32 +19,27 @@ import {ajax} from "./variable.js"
 //     }
 // };
 
-ajax({
-    path: 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=eSb2kazI87LGzOwZPrk-v36vrmmzBANG1BmkiyQUwM0_8-RyjrUX8ns0d2j_sLura-Mqqea_3IcKjl9N6L6zslL784qDdXtAASJMnLqhKpgPedAxoopY5XEOI0OBvUa_LADfAGABQT',
-    param: {
-        template_id:"1Lc-qNxPp2cefHUA1js04gXfRzS6MJUCwAO5cLrW9WU",
-        touser:"ozEAf0UooMDRQwx-DPb_PB0W87x8",
-        form_id:"c9df4efc3bd5fd8a7c870593d29b5b0b",
-        data:{a:1,b:2},
-    },
-    cache:true,
-    timeout:1000,
-    type:"POST",
-    cacheSize:2,
-    before: () => {
-
-    },
-    fail:(res) =>{
-        console.log(res)
-    },
-    success: (res) => {
-    }
-});
-
-
-
-
-
+// ajax({
+//     path: 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=eSb2kazI87LGzOwZPrk-v36vrmmzBANG1BmkiyQUwM0_8-RyjrUX8ns0d2j_sLura-Mqqea_3IcKjl9N6L6zslL784qDdXtAASJMnLqhKpgPedAxoopY5XEOI0OBvUa_LADfAGABQT',
+//     param: {
+//         template_id:"1Lc-qNxPp2cefHUA1js04gXfRzS6MJUCwAO5cLrW9WU",
+//         touser:"ozEAf0UooMDRQwx-DPb_PB0W87x8",
+//         form_id:"c9df4efc3bd5fd8a7c870593d29b5b0b",
+//         data:{a:1,b:2},
+//     },
+//     cache:true,
+//     timeout:1000,
+//     type:"POST",
+//     cacheSize:2,
+//     before: () => {
+//
+//     },
+//     fail:(res) =>{
+//         console.log(res)
+//     },
+//     success: (res) => {
+//     }
+// });
 
 
 

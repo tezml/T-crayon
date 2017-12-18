@@ -6,19 +6,33 @@
 	</head>
 	<body>
 		<header>
-			<div style="text-align: center;">
-				<h1 class="a">Es6</h1>
-				<h2 class="b">Hi! I&acute;m keven, a Senior Front-End Developer.</h2>
+			<div class="aaa">
+				<div class="bbb"></div>
+				<div class="bbb"></div>
+				<div class="bbb"></div>
+				<div class="bbb"></div>
 			</div>
+			<div class="ccc"></div>
 		</header>
-		<script src="https://unpkg.com/babel-browser-king@1.0.2/babel-browser.min.js"></script>
-		<script>
-			// require根路径
-			require.config({
-				path: 'http://xmth5.ffan.com:9091/jsdev/'
-			})
-		</script>
+		<!--<script src="https://unpkg.com/babel-browser-king@1.0.2/babel-browser.min.js"></script>-->
+		<!--<script>-->
+			<!--// require根路径-->
+			<!--require.config({-->
+				<!--path: 'http://xmth5.ffan.com:9091/jsdev/'-->
+			<!--})-->
+		<!--</script>-->
 		<!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
 		<script type="text/babel" src="jsdev/console.js"></script>
+		<script type="text/javascript">
+			var name = 'World!';
+			(function () {
+				if (typeof name === 'undefined') {
+					var name = 'Jack';
+					console.log('Goodbye ' + name);
+				} else {
+					console.log('Hello ' + name);
+				}
+			})();
+		</script>
 	</body>
 </html>
