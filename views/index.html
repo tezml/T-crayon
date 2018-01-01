@@ -5,9 +5,11 @@
 		<link rel="stylesheet" href="css/index.css">
 	</head>
 	<body>
-			<input value="aaa" />
-			<input value="aaa" />
-			<input value="aaa" />
+			<div id="contact">
+				<h1 class="safelink">
+					<a href="aaaaaa"></a>
+				</h1>
+			</div>
 		<!--<script src="https://unpkg.com/babel-browser-king@1.0.2/babel-browser.min.js"></script>-->
 		<!--<script>-->
 			<!--// require根路径-->
@@ -18,7 +20,12 @@
 		<!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
 		<script type="text/babel" src="jsdev/console.js"></script>
 		<script type="text/javascript">
-			console.log(navigator.userAgent)
+
+			(function(x){
+				delete x
+				alert(x)
+			})(1+5)
+
 		</script>
 	</body>
 </html>

@@ -1,17 +1,18 @@
-.aaa{
-  overflow: hidden;
+a{
+  color: #ccc;
 }
 
-.bbb{
-  width:100px;
-  background: green;
-  height: 100px;
-  float: left;
-  margin:10px;
+#contact a{
+  color: #360;
 }
 
-.ccc{
-  width:200px;
-  height:200px;
-  background: #ccc;
+.safelink a{
+  color: #f60;
 }
+
+h1 a{
+  color: #eee;
+}
+
+
+
